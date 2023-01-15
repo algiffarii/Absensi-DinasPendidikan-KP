@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class admin extends Model
+class pegawai extends Model
 {
     use HasFactory;
-    protected $table = 'admin';
-    protected $primaryKey = 'id_admin';
+    protected $table = 'pegawai';
+    protected $primaryKey = 'id_pegawai';
     public $timestamp = false;
 
     protected $fillable = [
+        'id_pegawai',
         'nama',
+        'jenis_kelamin',
+        'nomor_hp',
+        'jabatan',
         'email',
         'password'
     ];
