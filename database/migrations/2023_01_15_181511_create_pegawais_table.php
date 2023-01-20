@@ -15,14 +15,14 @@ class CreatePegawaisTable extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id('id_pegawai');
-            $table->string('nama');
+            $table->string('nama', 50);
             $table->enum('jenis_kelamin',
              ['Laki-laki', 'Perempuan'])
              ->nullable();
-             $table->string("nomor_hp");
-             $table->string('jabatan');
-             $table->string('email');
-             $table->string('password');
+             $table->string("nomor_hp", 50);
+             $table->string('jabatan', 50);
+             $table->string('email', 50);
+             $table->string('password', 50);
         });
     }
 

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'admin',
         'passwords' => 'users',
     ],
 
@@ -38,7 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admin',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'pegawai' => [
+            'driver' => 'session',
+            'provider' => 'pegawais',
         ],
     ],
 
@@ -65,10 +75,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Admin::class,
+        ],
+
+        'pegawais' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Pegawai::class,
+        ],
     ],
 
     /*
@@ -93,6 +108,14 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'admin' => [
+            'provider' => 'admins',
+            'model'=>\App\Models\Admin::class,
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*

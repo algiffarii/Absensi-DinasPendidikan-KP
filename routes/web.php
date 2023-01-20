@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Auth\Register\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,8 @@ Route::get('/', function () {
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/login-admin', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('doLogin');
+
+    Route::get('/register-admin', [RegisterController::class, 'registerpage'])->name('register-page');
+    Route::post('/register-admin', [RegisterController::class, 'register'])->name('register');
 });
