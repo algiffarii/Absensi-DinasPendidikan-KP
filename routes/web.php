@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\TambahAbsensi\TambahAbsensiController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\Register\RegisterController;
@@ -25,4 +27,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
     Route::get('/register-admin', [RegisterController::class, 'registerpage'])->name('register-page');
     Route::post('/register-admin', [RegisterController::class, 'register'])->name('register');
+
+
+    Route::get('/tambah-absensi', [TambahAbsensiController::class, 'tambahAbsensiPage'])->name('tambah-absensi-page')
+        ->middleware("auth:admin");
+    Route::post('/tambah-absensi', [TambahAbsensiController::class, 'tambahAbsensi'])->name('tambah-absensi');
 });
+
+Route::get('/Dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');

@@ -34,12 +34,13 @@ class LoginController extends Controller
             $admin = Admin::where('email', $request->email)->first();
 
             Session::put('isLogin',true);
+            Session::put('isAdmin',true);
             Session::put('admin',[
                 'id_admin'=>$admin->id_admin,
                 'nama'=>$admin->nama,
                 'email'=>$admin->email,
             ]);
-            return redirect()->route('admin.register-page');
+            return redirect()->route('dashboard');
         }
 
         return back()->with('fail','Email/Password anda salah');

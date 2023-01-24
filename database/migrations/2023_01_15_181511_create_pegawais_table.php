@@ -22,7 +22,7 @@ class CreatePegawaisTable extends Migration
              $table->string("nomor_hp", 50);
              $table->string('jabatan', 50);
              $table->string('email', 50);
-             $table->string('password', 50);
+             $table->string('password');
         });
     }
 

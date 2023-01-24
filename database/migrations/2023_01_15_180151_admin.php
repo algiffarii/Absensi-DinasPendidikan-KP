@@ -17,7 +17,7 @@ class Admin extends Migration
             $table->id('id_admin');
             $table->string('nama',50);
             $table->string('email', 50);
-            $table->string('password', 50);
+            $table->string('password');
         });
     }
 
