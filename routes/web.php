@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\TambahAbsensi\TambahAbsensiController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Pegawai\Absensi\ScanAbsensi\ScanAbsensiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\Register\RegisterController;
@@ -24,6 +25,9 @@ Route::get('/', function () {
 Route::prefix('pegawai')->name('pegawai.')->group(function() {
     Route::get('/login-pegawai', [LoginController::class, 'indexPegawai'])->name('login-pegawai');
     Route::post('/login', [LoginController::class, 'loginPegawai'])->name('doLogin-pegawai');
+
+    Route::get('/scan-absensi', [ScanAbsensiController::class, 'index'])->name('scan-absensi');
+    Route::post('/scan-absensi', [ScanAbsensiController::class, 'doabsensi'])->name('doScan-absensi');
 });
 
 Route::prefix('admin')->name('admin.')->group(function() {

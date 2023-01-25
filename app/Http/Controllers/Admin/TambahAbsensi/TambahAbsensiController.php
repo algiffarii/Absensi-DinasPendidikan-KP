@@ -27,7 +27,7 @@ class TambahAbsensiController extends Controller
 
         $data = [
             "id_admin" => Session::get('admin.id_admin'),
-            "token_absensi" => Crypt::encryptString($request->start_date . $request->end_date . $request->jenis_absensi . "Absensi Dinas Pendidikan Kukar")
+            "token_absensi" => Crypt::encryptString($request->start_date .",". $request->end_date .",". $request->jenis_absensi .",". "Absensi Dinas Pendidikan Kukar")
         ];
 
         $buatAbsen = TokenAbsensiModel::create($data);
