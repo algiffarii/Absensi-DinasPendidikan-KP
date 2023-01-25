@@ -21,6 +21,11 @@ Route::get('/', function () {
     return redirect()->route('admin.login');
 });
 
+Route::prefix('pegawai')->name('pegawai.')->group(function() {
+    Route::get('/login-pegawai', [LoginController::class, 'indexPegawai'])->name('login-pegawai');
+    Route::post('/login', [LoginController::class, 'loginPegawai'])->name('doLogin-pegawai');
+});
+
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/login-admin', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('doLogin');

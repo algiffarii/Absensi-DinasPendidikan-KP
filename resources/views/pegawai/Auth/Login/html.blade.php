@@ -5,9 +5,9 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Login Admin</p>
+        <p class="login-box-msg">Login Pegawai</p>
 
-        <form action="{{route("admin.doLogin")}}" method="post">
+        <form action="{{route("pegawai.doLogin-pegawai")}}" method="post">
             @csrf
           <div class="input-group mb-3">
             <input name="email" type="email" class="form-control" placeholder="Email">
@@ -34,10 +34,10 @@
         </form>
 
         <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
+          <a href="#">I forgot my password</a>
         </p>
         <p class="mb-0">
-          <a href="{{route("pegawai.login-pegawai")}}" class="text-center">Login Sebagai Pegawai</a>
+          <a href="{{route("admin.login")}}" class="text-center">Login Sebagai Admin</a>
         </p>
       </div>
       <!-- /.login-card-body -->
